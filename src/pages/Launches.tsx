@@ -183,67 +183,123 @@ export const Launches: React.FC = () => {
             )}
           </div>
 
-          {/* pagination */}
-          {totalPages > 1 && (
-            <div className="flex justify-center items-center mt-12 space-x-2">
-              {/* previous*/}
+         {/* pagination */}
+{totalPages > 1 && (
+  <div className="flex flex-col items-center mt-8 sm:mt-12 space-y-4 sm:space-y-0">
+    {/* mobile layout */}
+    <div className="sm:hidden w-full max-w-sm">
+      <div className="flex justify-between items-center mb-3">
+        <button
+          onClick={goToPrevious}
+          disabled={currentPage === 1}
+          className={`px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+            currentPage === 1
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+          }`}
+        >
+          Previous
+        </button>
+        
+        <div className="text-sm text-gray-600 font-medium">
+          Page {currentPage} of {totalPages}
+        </div>
+        
+        <button
+          onClick={goToNext}
+          disabled={currentPage === totalPages}
+          className={`px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200 ${
+            currentPage === totalPages
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+          }`}
+        >
+          Next
+        </button>
+      </div>
+      
+      {/* mobile view */}
+      <div className="flex justify-center space-x-1 overflow-x-auto pb-2">
+        {getPageNumbers().slice(0, 5).map((page, index) => (
+          <React.Fragment key={index}>
+            {page === '...' ? (
+              <span className="px-2 py-1 text-gray-400 text-sm">...</span>
+            ) : (
               <button
-                onClick={goToPrevious}
-                disabled={currentPage === 1}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                  currentPage === 1
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+                onClick={() => goToPage(page as number)}
+                className={`px-2 py-1 rounded-md font-medium text-sm transition-all duration-200 min-w-[32px] ${
+                  currentPage === page
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
                 }`}
               >
-                Previous
+                {page}
               </button>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
 
-              {/* numbers */}
-              <div className="flex space-x-1">
-                {getPageNumbers().map((page, index) => (
-                  <React.Fragment key={index}>
-                    {page === '...' ? (
-                      <span className="px-3 py-2 text-gray-400">...</span>
-                    ) : (
-                      <button
-                        onClick={() => goToPage(page as number)}
-                        className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
-                          currentPage === page
-                            ? 'bg-blue-600 text-white shadow-lg'
-                            : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
+    {/* desktop layout */}
+    <div className="hidden sm:flex justify-center items-center space-x-2">
+      {/* previous*/}
+      <button
+        onClick={goToPrevious}
+        disabled={currentPage === 1}
+        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+          currentPage === 1
+            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+            : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+        }`}
+      >
+        Previous
+      </button>
 
-              {/* next btn*/}
+      {/* numbers */}
+      <div className="flex space-x-1">
+        {getPageNumbers().map((page, index) => (
+          <React.Fragment key={index}>
+            {page === '...' ? (
+              <span className="px-3 py-2 text-gray-400">...</span>
+            ) : (
               <button
-                onClick={goToNext}
-                disabled={currentPage === totalPages}
-                className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                  currentPage === totalPages
-                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+                onClick={() => goToPage(page as number)}
+                className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 ${
+                  currentPage === page
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300'
                 }`}
               >
-                Next
+                {page}
               </button>
-            </div>
-          )}
+            )}
+          </React.Fragment>
+        ))}
+      </div>
 
-          {/* page info */}
-          {totalPages > 1 && (
-            <div className="text-center mt-4">
-              <p className="text-sm text-gray-500">
-                Page {currentPage} of {totalPages}
-              </p>
-            </div>
-          )}
+      {/* next btn*/}
+      <button
+        onClick={goToNext}
+        disabled={currentPage === totalPages}
+        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+          currentPage === totalPages
+            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+            : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-300 shadow-sm'
+        }`}
+      >
+        Next
+      </button>
+    </div>
+
+    {/* desktop page info */}
+    <div className="hidden sm:block text-center mt-4">
+      <p className="text-sm text-gray-500">
+        Page {currentPage} of {totalPages}
+      </p>
+    </div>
+  </div>
+)}
         </div>
       </section>
 
