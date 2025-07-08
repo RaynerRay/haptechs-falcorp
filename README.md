@@ -12,8 +12,8 @@ https://haptechs-falcorp.vercel.app/
 
 ## how to run the project locally. 
 
-1.Clone the Repository.
-2.Change your current directory to the newly cloned project folder.
-3.Install dependencies [ ### npm install ].
-4.Start the project by running [ ### npm start ].
+#### 1.Clone the Repository.
+#### 2.Change your current directory to the newly cloned project folder.
+#### 3.Install dependencies [ ### npm install ].
+#### 4.Start the project by running [ ### npm start ].
 
