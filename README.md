@@ -1,4 +1,4 @@
-# A brief explanation of your project structure and design choices.
+# Project structure and design choices.
 My project is of a fictional company called Haptechs, that gives users info about SpaceX launches and rockets.
 ### Tech Stack:
 React, Typescript, Tanstack React-Query, Material UI, Tailwind Css, and Lucide-react icons
