@@ -22,7 +22,7 @@ export const Launches: React.FC = () => {
   const totalLaunches = (launchesResponse as LaunchesResponse)?.totalDocs ?? 0;
   const totalPages = Math.ceil(totalLaunches / launchesPerPage);
 
-  const getStatusColor = (success: boolean | null) => {
+  const getStatusColuor = (success: boolean | null) => {
     if (success === true) return "bg-green-100 text-green-800";
     if (success === false) return "bg-red-100 text-red-800";
     return "bg-yellow-100 text-yellow-800";
@@ -143,7 +143,7 @@ export const Launches: React.FC = () => {
                         {/* Status Badge */}
                         <div className="absolute top-3 right-3">
                           <span
-                            className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(
+                            className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColuor(
                               launch.success ?? null
                             )}`}
                           >

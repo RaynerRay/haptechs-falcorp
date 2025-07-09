@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 items-center lg:grid-cols-2 gap-12 ">
           {/*left side*/}
           <div className="relative z-10 order-2 lg:order-1">
             <div className="relative">
@@ -20,12 +20,12 @@ const Hero: React.FC = () => {
                 alt="SpaceX Satellite"
                 className="w-full max-w-md mx-auto lg:max-w-lg xl:max-w-xl rounded-2xl shadow-2xl"
               />
-              {/* float effect*/}
+              {/* make image float*/}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
           </div>
 
-          {/* right Side*/}
+          {/*right Side*/}
           <div className="relative z-10 order-1 lg:order-2 text-center lg:text-left">
             <div className="space-y-6">
          
@@ -33,9 +33,9 @@ const Hero: React.FC = () => {
                 Haptechs
               </h1>
 
-              {/* Main Headline */}
+              {/* headline */}
               <div className="space-y-2">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <h2 className="text-gray-900 text-4xl md:text-5xl lg:text-6xl font-bold  leading-tight">
                   <span className="text-[#3C50A0]">SPACEX</span> 
                   <span className="text-gray-900"> SATELLITE &</span>
                 </h2>
@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
                     '&:hover': { bgcolor: '#3C50B3' }, 
                   }}
                   size="large"
-                  className=" text-white px-8 py-4 text-lg font-semibold normal-case rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                  className="rounded-lg text-white px-8 py-4 text-lg font-semibold  shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
                 >
                   Go To Launches
                 </Button>

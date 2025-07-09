@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
     <>
       <nav className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="h-16 flex justify-between items-center h-16">
             {/* logo*/}
             <div className="flex items-center space-x-2">
               <div className="w-32 h-24 rounded-full flex items-center justify-center">
